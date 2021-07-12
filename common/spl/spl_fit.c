@@ -374,6 +374,12 @@ static int spl_fit_append_fdt(struct spl_image_info *spl_image,
 	 */
 	image_info.load_addr = spl_image->load_addr + spl_image->size;
 
+	/*
+	 * Since libfdt v1.6.1, the device tree must be loaded in to memory
+	 * at an 8-byte aligned address.
+	 */
+	image_info.load_addr = roundup(image_info.load_addr, 8);
+
 	/* Figure out which device tree the board wants to use */
 	node = spl_fit_get_image_node(ctx, FIT_FDT_PROP, index++);
 	if (node < 0) {
