@@ -51,4 +51,7 @@ config SYS_SOC
 
 endif
 
+config SYS_MALLOC_F_LEN
+	default 0x2800
+
 endif
