@@ -1444,7 +1444,7 @@ S:	Maintained
 T:	git https://source.denx.de/u-boot/custodians/u-boot-net.git
 F:	cmd/lwip/
 F:	cmd/net-lwip.c
-F:	configs/qemu_arm64_lwip_defconfig
+F:	configs/qemu-arm64_lwip_defconfig
 F:	drivers/net/sandbox-lwip.c
 F:	include/net-lwip.h
 F:	lib/lwip/Makefile
