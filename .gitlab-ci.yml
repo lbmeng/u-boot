@@ -18,7 +18,7 @@ workflow:
 
 # Grab our configured image.  The source for this is found
 # in the u-boot tree at tools/docker/Dockerfile
-image: ${MIRROR_DOCKER}/trini/u-boot-gitlab-ci-runner:jammy-20251001-04Nov2025
+image: ${MIRROR_DOCKER}/binmeng/u-boot-ci-runner:latest
 
 # We run some tests in different order, to catch some failures quicker.
 stages:
@@ -34,7 +34,7 @@ stages:
   before_script:
     # Clone uboot-test-hooks
     - git config --global --add safe.directory "${CI_PROJECT_DIR}"
-    - git clone --depth=1 https://source.denx.de/u-boot/u-boot-test-hooks /tmp/uboot-test-hooks
+    - git clone --depth=1 https://github.com/lbmeng/uboot-test-hooks.git /tmp/uboot-test-hooks
     # qemu-arm64_lwip_defconfig is the same as qemu-arm64 but with NET_LWIP enabled.
     # The test config and the boardenv file from qemu-arm64 can be re-used so create symlinks
     - ln -s conf.qemu-arm64 /tmp/uboot-test-hooks/bin/travis-ci/conf.qemu-arm64_lwip_na
